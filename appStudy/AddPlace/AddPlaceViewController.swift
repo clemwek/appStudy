@@ -50,7 +50,7 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-    
+
     func render(_ location: CLLocation) {
         let coordinate = location.coordinate
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
@@ -86,7 +86,7 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 extension AddPlaceViewController: UIGestureRecognizerDelegate {
-    
+
     @objc
     func handleTap(_ gestureReconizer: UILongPressGestureRecognizer) {
         let cgLocation = gestureReconizer.location(in: map)
