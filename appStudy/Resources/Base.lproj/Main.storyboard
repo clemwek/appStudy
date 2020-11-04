@@ -39,8 +39,9 @@
                                 <rect key="frame" x="0.0" y="813" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="Rj3-BJ-qs0"/>
-                                    <tabBarItem systemItem="more" id="BBr-t7-PBk"/>
+                                    <tabBarItem title="Home" image="house" catalog="system" selectedImage="house.fill" id="Rj3-BJ-qs0"/>
+                                    <tabBarItem title="Help" image="info.circle" catalog="system" selectedImage="info.circle.fill" id="3MI-aa-N7D"/>
+                                    <tabBarItem title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="BBr-t7-PBk"/>
                                 </items>
                             </tabBar>
                         </subviews>
@@ -67,6 +68,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
