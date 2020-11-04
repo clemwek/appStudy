@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B339DD7D2552E0150008B66F /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339DD7C2552E0150008B66F /* AddPlaceViewController.swift */; };
 		B39CD938255293CF00B89E61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CD937255293CF00B89E61 /* AppDelegate.swift */; };
 		B39CD93A255293CF00B89E61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CD939255293CF00B89E61 /* SceneDelegate.swift */; };
 		B39CD93C255293CF00B89E61 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CD93B255293CF00B89E61 /* HomeViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B339DD7C2552E0150008B66F /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		B39CD934255293CF00B89E61 /* appStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39CD937255293CF00B89E61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B39CD939255293CF00B89E61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B339DD7B2552DFE20008B66F /* AddPlace */ = {
+			isa = PBXGroup;
+			children = (
+				B339DD7C2552E0150008B66F /* AddPlaceViewController.swift */,
+			);
+			path = AddPlace;
+			sourceTree = "<group>";
+		};
 		B39CD92B255293CF00B89E61 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		B39CD936255293CF00B89E61 /* appStudy */ = {
 			isa = PBXGroup;
 			children = (
+				B339DD7B2552DFE20008B66F /* AddPlace */,
 				B39CD96A2552959F00B89E61 /* App */,
 				B39CD96B255295B800B89E61 /* Home */,
 				B39CD948255293D300B89E61 /* Info.plist */,
@@ -285,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B339DD7D2552E0150008B66F /* AddPlaceViewController.swift in Sources */,
 				B39CD93C255293CF00B89E61 /* HomeViewController.swift in Sources */,
 				B39CD938255293CF00B89E61 /* AppDelegate.swift in Sources */,
 				B39CD93A255293CF00B89E61 /* SceneDelegate.swift in Sources */,

@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="-2541" y="-92"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Place View Controller-->
         <scene sceneID="LRU-Cm-Z9F">
             <objects>
-                <viewController id="WSB-AI-exD" sceneMemberID="viewController">
+                <viewController id="WSB-AI-exD" customClass="AddPlaceViewController" customModule="appStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qNe-Km-TED">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,6 +77,9 @@
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-hP-1Lu">
                                 <rect key="frame" x="0.0" y="132" width="414" height="681"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WSB-AI-exD" id="f7J-D7-dTe"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ccY-18-Age"/>
@@ -92,6 +95,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lSg-vJ-41t"/>
+                    <connections>
+                        <outlet property="map" destination="c2r-hP-1Lu" id="txA-HR-yfk"/>
+                        <outlet property="search" destination="75f-a2-Pvy" id="9fg-vj-Z3B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ax3-3O-R1H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
