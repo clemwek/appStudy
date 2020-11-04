@@ -22,6 +22,11 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Add gesture information
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        gestureRecognizer.delegate = self
+        map.addGestureRecognizer(gestureRecognizer)
 
         setupSearchTable()
     }
@@ -38,7 +43,11 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
         if let location = locations.first {
             manager.stopUpdatingLocation()
             
-            render(location)
+            if #available(iOS 10.0, *) {
+                dropPinZoomIn(placemark: MKPlacemark(coordinate: location.coordinate))
+            } else {
+                render(location)
+            }
         }
     }
     
@@ -73,6 +82,22 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
         locationSearchTable.mapView = map
 
         locationSearchTable.handleMapSearchDelegate = self
+    }
+}
+
+extension AddPlaceViewController: UIGestureRecognizerDelegate {
+    
+    @objc
+    func handleTap(_ gestureReconizer: UILongPressGestureRecognizer) {
+        let cgLocation = gestureReconizer.location(in: map)
+        let coordinate = map.convert(cgLocation, toCoordinateFrom: map)
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+
+        if #available(iOS 10.0, *) {
+            showAlert(place: MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate)))
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 
