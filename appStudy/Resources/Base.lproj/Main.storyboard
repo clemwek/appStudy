@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17140" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17140" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yAK-SG-Yp8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Settings-->
+        <scene sceneID="kyk-dD-8w8">
+            <objects>
+                <viewController id="FVC-2V-T9g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GAB-Af-wk4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mZ2-ia-Ljg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="ioc-J6-ujg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Jz-f0-6yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1110" y="552"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="57r-cd-6CQ">
+            <objects>
+                <viewController id="2dL-lN-zC4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ty-sH-mw4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9rI-Uc-j2E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Help" image="info.circle" catalog="system" selectedImage="info.circle.fill" id="n4b-Wo-j5U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTR-ID-XWH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1109" y="-92"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="iu3-KD-Bfd">
+            <objects>
+                <tabBarController id="yAK-SG-Yp8" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wk8-lk-gAI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="pu0-RL-Uv6"/>
+                        <segue destination="2dL-lN-zC4" kind="relationship" relationship="viewControllers" id="B2R-ne-tSe"/>
+                        <segue destination="FVC-2V-T9g" kind="relationship" relationship="viewControllers" id="Vdb-PL-Dju"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AyW-Gp-jor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2541" y="-92"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="appStudy" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2YS-cE-yZH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="ot4-J4-Ugk">
@@ -35,36 +86,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="EzR-rw-mBe"/>
                                 </connections>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5d-DK-PQe">
-                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="Home" image="house" catalog="system" selectedImage="house.fill" id="Rj3-BJ-qs0"/>
-                                    <tabBarItem title="Help" image="info.circle" catalog="system" selectedImage="info.circle.fill" id="3MI-aa-N7D"/>
-                                    <tabBarItem title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="BBr-t7-PBk"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="B5d-DK-PQe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KYk-3B-ObU"/>
-                            <constraint firstAttribute="bottom" secondItem="B5d-DK-PQe" secondAttribute="bottom" id="Q2u-Qz-Gqk"/>
-                            <constraint firstItem="B5d-DK-PQe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="b2K-6G-1hj"/>
                             <constraint firstItem="2YS-cE-yZH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eAc-Dv-AoX"/>
-                            <constraint firstItem="B5d-DK-PQe" firstAttribute="top" secondItem="2YS-cE-yZH" secondAttribute="bottom" id="fqo-9w-SjM"/>
-                            <constraint firstItem="B5d-DK-PQe" firstAttribute="top" secondItem="2YS-cE-yZH" secondAttribute="bottom" id="lgK-t9-x5x"/>
+                            <constraint firstAttribute="bottom" secondItem="2YS-cE-yZH" secondAttribute="bottom" id="hrx-Lg-OqJ"/>
                             <constraint firstItem="2YS-cE-yZH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mCF-V5-dEd"/>
                             <constraint firstItem="2YS-cE-yZH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yCj-3Y-PHo"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="r4M-LP-wKp"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cityTable" destination="2YS-cE-yZH" id="qOU-mU-oMZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-86.956521739130437" y="87.723214285714278"/>
+            <point key="canvasLocation" x="-1110" y="-763"/>
         </scene>
     </scenes>
     <resources>
