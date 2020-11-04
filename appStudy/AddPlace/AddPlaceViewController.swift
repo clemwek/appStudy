@@ -9,16 +9,21 @@ import CoreLocation
 import UIKit
 import MapKit
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark: MKPlacemark, name: String)
+    func showAlert(place: MKMapItem)
+}
+
 class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
     let manager = CLLocationManager()
+    var resultSearchController: UISearchController? = nil
 
-    @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupSearchTable()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,15 +55,56 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
         map.addAnnotation(pin)
     }
     
+    // Setup the search table
+    func setupSearchTable() {
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTableViewController
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
 
-    /*
-    // MARK: - Navigation
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        navigationItem.titleView = resultSearchController?.searchBar
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.obscuresBackgroundDuringPresentation = true
+        definesPresentationContext = true
+
+        locationSearchTable.mapView = map
+
+        locationSearchTable.handleMapSearchDelegate = self
     }
-    */
+}
 
+extension AddPlaceViewController: HandleMapSearch {
+    func dropPinZoomIn(placemark: MKPlacemark, name: String = "") {
+        let newName = name == "" ? placemark.name : name
+        // clear existing pins
+//        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = newName
+        if let city = placemark.locality,
+            let state = placemark.administrativeArea {
+            annotation.subtitle = "\(city) \(state)"
+        }
+
+        map.addAnnotation(annotation)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        map.setRegion(region, animated: true)
+    }
+    
+    func showAlert(place: MKMapItem) {
+        let alertController = UIAlertController(title: "Do you want to save this location?",
+                                                message: "If you save this location you will be able to get the weather for this place",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismis", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
+            self.dropPinZoomIn(placemark: place.placemark)
+//            CoreDataClient.save(place: place)
+        }))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

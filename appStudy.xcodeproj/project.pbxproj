@@ -17,6 +17,7 @@
 		B39CD947255293D300B89E61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39CD945255293D300B89E61 /* LaunchScreen.storyboard */; };
 		B39CD952255293D300B89E61 /* appStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CD951255293D300B89E61 /* appStudyTests.swift */; };
 		B39CD95D255293D300B89E61 /* appStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CD95C255293D300B89E61 /* appStudyUITests.swift */; };
+		B3EC262A2552FA9900690B23 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC26292552FA9900690B23 /* LocationSearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B39CD958255293D300B89E61 /* appStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39CD95C255293D300B89E61 /* appStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appStudyUITests.swift; sourceTree = "<group>"; };
 		B39CD95E255293D300B89E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3EC26292552FA9900690B23 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		B39CD936255293CF00B89E61 /* appStudy */ = {
 			isa = PBXGroup;
 			children = (
+				B3EC26282552FA5C00690B23 /* LocationSearchTable */,
 				B339DD7B2552DFE20008B66F /* AddPlace */,
 				B39CD96A2552959F00B89E61 /* App */,
 				B39CD96B255295B800B89E61 /* Home */,
@@ -164,6 +167,14 @@
 				B39CD93D255293CF00B89E61 /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B3EC26282552FA5C00690B23 /* LocationSearchTable */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC26292552FA9900690B23 /* LocationSearchTableViewController.swift */,
+			);
+			path = LocationSearchTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +311,7 @@
 				B39CD93C255293CF00B89E61 /* HomeViewController.swift in Sources */,
 				B39CD938255293CF00B89E61 /* AppDelegate.swift in Sources */,
 				B39CD93A255293CF00B89E61 /* SceneDelegate.swift in Sources */,
+				B3EC262A2552FA9900690B23 /* LocationSearchTableViewController.swift in Sources */,
 				B39CD942255293CF00B89E61 /* appStudy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

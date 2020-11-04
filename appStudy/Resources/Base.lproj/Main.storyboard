@@ -68,15 +68,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="75f-a2-Pvy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="6gF-wQ-Rk4"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-hP-1Lu">
-                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <connections>
                                     <outlet property="delegate" destination="WSB-AI-exD" id="f7J-D7-dTe"/>
                                 </connections>
@@ -85,24 +78,48 @@
                         <viewLayoutGuide key="safeArea" id="ccY-18-Age"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c2r-hP-1Lu" firstAttribute="top" secondItem="75f-a2-Pvy" secondAttribute="bottom" id="M29-bw-5hO"/>
-                            <constraint firstItem="75f-a2-Pvy" firstAttribute="leading" secondItem="ccY-18-Age" secondAttribute="leading" id="OhC-jO-9fD"/>
+                            <constraint firstItem="c2r-hP-1Lu" firstAttribute="top" secondItem="ccY-18-Age" secondAttribute="top" id="Ms5-cx-riR"/>
                             <constraint firstItem="ccY-18-Age" firstAttribute="bottom" secondItem="c2r-hP-1Lu" secondAttribute="bottom" id="bmX-TP-K1u"/>
                             <constraint firstItem="ccY-18-Age" firstAttribute="trailing" secondItem="c2r-hP-1Lu" secondAttribute="trailing" id="cQg-29-BXL"/>
-                            <constraint firstItem="75f-a2-Pvy" firstAttribute="trailing" secondItem="ccY-18-Age" secondAttribute="trailing" id="cab-o9-GlF"/>
                             <constraint firstItem="c2r-hP-1Lu" firstAttribute="leading" secondItem="ccY-18-Age" secondAttribute="leading" id="hvI-AM-dnu"/>
-                            <constraint firstItem="75f-a2-Pvy" firstAttribute="top" secondItem="ccY-18-Age" secondAttribute="top" id="swM-D2-uyX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lSg-vJ-41t"/>
                     <connections>
                         <outlet property="map" destination="c2r-hP-1Lu" id="txA-HR-yfk"/>
-                        <outlet property="search" destination="75f-a2-Pvy" id="9fg-vj-Z3B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ax3-3O-R1H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-1439"/>
+        </scene>
+        <!--Location Search Table View Controller-->
+        <scene sceneID="jjJ-MD-VFn">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="qFE-LM-ZDf" customClass="LocationSearchTableViewController" customModule="appStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="R8t-ay-dgq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationSearchCell" id="Lrd-zR-d6d">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lrd-zR-d6d" id="CaC-fM-hQ9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qFE-LM-ZDf" id="MhE-zM-Kzb"/>
+                            <outlet property="delegate" destination="qFE-LM-ZDf" id="pZN-lr-wqN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sAC-6b-YCc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573.913043478261" y="-1439.0625"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
