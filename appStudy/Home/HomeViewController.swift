@@ -61,8 +61,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @available(iOS 11.0, *)
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-            // perform deletion
-            print("we are getting here")
+            if let deletePlace = self.places?[indexPath.row] {
+                self.context.delete(deletePlace)
+                do {
+                    try self.context.save()
+                } catch {
+                    // Notify the user it failed
+                }
+                self.fetchPlaces()
+            }
         }
         return UISwipeActionsConfiguration(actions: [delete])
     }
