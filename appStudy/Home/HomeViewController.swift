@@ -6,25 +6,50 @@
 //
 
 import UIKit
+import Foundation
 
+@available(iOS 10.0, *)
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var cityTable: UITableView!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var places: [Places]? = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+        fetchPlaces()
     }
+    
+    func fetchPlaces() {
+        do {
+            places = try context.fetch(Places.fetchRequest())
+            DispatchQueue.main.async {
+                self.cityTable.reloadData()
+            }
+        } catch {
+            places = []
+        }
+    }
+
 }
 
+@available(iOS 10.0, *)
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return places?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var place: Places
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell")!
-        cell.textLabel?.text = "test"
+        if let places = places {
+            place = places[indexPath.row]
+            
+            cell.textLabel?.text = place.name
+        }
         return cell
     }
     

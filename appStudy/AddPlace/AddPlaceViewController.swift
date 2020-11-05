@@ -14,15 +14,16 @@ protocol HandleMapSearch {
     func showAlert(place: MKMapItem)
 }
 
+@available(iOS 10.0, *)
 class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     var resultSearchController: UISearchController? = nil
 
     @IBOutlet weak var map: MKMapView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Add gesture information
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         gestureRecognizer.delegate = self
@@ -30,7 +31,7 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
 
         setupSearchTable()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
@@ -38,16 +39,13 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             manager.stopUpdatingLocation()
             
-            if #available(iOS 10.0, *) {
-                dropPinZoomIn(placemark: MKPlacemark(coordinate: location.coordinate))
-            } else {
-                render(location)
-            }
+            dropPinZoomIn(placemark: MKPlacemark(coordinate: location.coordinate))
+
         }
     }
 
@@ -85,6 +83,7 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
+@available(iOS 10.0, *)
 extension AddPlaceViewController: UIGestureRecognizerDelegate {
 
     @objc
@@ -93,14 +92,12 @@ extension AddPlaceViewController: UIGestureRecognizerDelegate {
         let coordinate = map.convert(cgLocation, toCoordinateFrom: map)
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
-        if #available(iOS 10.0, *) {
-            showAlert(place: MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate)))
-        } else {
-            // Fallback on earlier versions
-        }
+        showAlert(place: MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate)))
+
     }
 }
 
+@available(iOS 10.0, *)
 extension AddPlaceViewController: HandleMapSearch {
     func dropPinZoomIn(placemark: MKPlacemark, name: String = "") {
         let newName = name == "" ? placemark.name : name
