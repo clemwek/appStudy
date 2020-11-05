@@ -22,6 +22,11 @@ class HomeViewController: UIViewController {
         fetchPlaces()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchPlaces()
+    }
+    
     func fetchPlaces() {
         do {
             places = try context.fetch(Places.fetchRequest())
@@ -32,7 +37,6 @@ class HomeViewController: UIViewController {
             places = []
         }
     }
-
 }
 
 @available(iOS 10.0, *)
@@ -47,7 +51,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell")!
         if let places = places {
             place = places[indexPath.row]
-            
+
             cell.textLabel?.text = place.name
         }
         return cell

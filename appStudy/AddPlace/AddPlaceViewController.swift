@@ -16,6 +16,7 @@ protocol HandleMapSearch {
 
 @available(iOS 10.0, *)
 class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let manager = CLLocationManager()
     var resultSearchController: UISearchController? = nil
 
@@ -62,6 +63,24 @@ class AddPlaceViewController: UIViewController, CLLocationManagerDelegate {
         map.addAnnotation(pin)
     }
     
+    // This looks up the tapped location and adds description
+    func lookUpCurrentLocation(location: CLLocation, completionHandler: @escaping (CLPlacemark?) -> Void) {
+        let geocoder = CLGeocoder()
+
+        // Look up the location and pass it to the completion handler
+        geocoder.reverseGeocodeLocation(location,
+                                        completionHandler: { (placemarks, error) in
+                                            if error == nil {
+                                                let firstLocation = placemarks?[0]
+                                                completionHandler(firstLocation)
+                                            }
+                                            else {
+                                                // An error occurred during geocoding.
+                                                completionHandler(nil)
+                                            }
+        })
+    }
+    
     // Setup the search table
     func setupSearchTable() {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTableViewController
@@ -92,7 +111,11 @@ extension AddPlaceViewController: UIGestureRecognizerDelegate {
         let coordinate = map.convert(cgLocation, toCoordinateFrom: map)
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
-        showAlert(place: MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate)))
+        lookUpCurrentLocation(location: location) { (placemark) in
+            if let placemark = placemark {
+                self.showAlert(place: MKMapItem(placemark: MKPlacemark(placemark: placemark)))
+            }
+        }
 
     }
 }
@@ -124,7 +147,12 @@ extension AddPlaceViewController: HandleMapSearch {
         alertController.addAction(UIAlertAction(title: "Dismis", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
             self.dropPinZoomIn(placemark: place.placemark)
-//            CoreDataClient.save(place: place)
+            // Save to coreData
+            let newPlace = Places(context: self.context)
+            newPlace.name = place.placemark.name
+            newPlace.lon = place.placemark.location?.coordinate.longitude ?? 0.0
+            newPlace.lat = place.placemark.location?.coordinate.latitude ?? 0.0
+            try! self.context.save()
         }))
 
         self.present(alertController, animated: true, completion: nil)
