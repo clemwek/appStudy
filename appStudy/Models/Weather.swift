@@ -8,9 +8,10 @@
 import Foundation
 
 struct Weather: Codable {
-    let lat: String
-    let lon: String
-    let timeZone: String
+    let lat: Double
+    let lon: Double
+    let timeZone: String?
+    let timezone_offset: Double
     let current: Current
     let daily: [Daily]
 }
@@ -20,16 +21,16 @@ struct Current: Codable {
     let sunrise: Int
     let sunset: Int
     let temp: Double
-    let feelsLike: Double
+    let feels_like: Double
     let pressure: Int
     let humidity: Int
 }
 
 struct Daily: Codable {
-    let sunrise: String
-    let sunset: String
+    let sunrise: Int
+    let sunset: Int
     let temp: Temp
-    let feelsLike: FeelsLike
+    let feels_like: FeelsLike
     let pressure: Int
     let humidity: Int
 }
@@ -39,13 +40,13 @@ struct Temp: Codable {
     let min: Double
     let max: Double
     let night: Double
-    let evening: Double
-    let morning: Double
+    let eve: Double
+    let morn: Double
 }
 
 struct FeelsLike: Codable {
     let day: Double
     let night: Double
-    let evening: Double
-    let morning: Double
+    let eve: Double
+    let morn: Double
 }

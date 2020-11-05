@@ -75,7 +75,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("test row")
+        guard let place = places?[indexPath.row] else { return }
+        
+        let destinationVC = CityViewController()
+        destinationVC.place = place
+        
+        destinationVC.performSegue(withIdentifier: "test", sender: nil)
     }
 }
 

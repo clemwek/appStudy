@@ -167,17 +167,17 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cityTable" destination="2YS-cE-yZH" id="qOU-mU-oMZ"/>
-                        <segue destination="GM3-vL-rOn" kind="show" identifier="showWeatherData" id="YvB-9X-ZZS"/>
+                        <segue destination="GM3-vL-rOn" kind="show" identifier="test" id="w4D-br-xbq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-200.00000000000003" y="-763.39285714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--City View Controller-->
         <scene sceneID="10x-Br-cfv">
             <objects>
-                <viewController id="GM3-vL-rOn" sceneMemberID="viewController">
+                <viewController id="GM3-vL-rOn" customClass="CityViewController" customModule="appStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="csK-j4-2tL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
