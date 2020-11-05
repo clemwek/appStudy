@@ -6,25 +6,54 @@
 //
 
 import UIKit
+import Foundation
 
+@available(iOS 10.0, *)
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var cityTable: UITableView!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var places: [Places]? = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+        fetchPlaces()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchPlaces()
+    }
+    
+    func fetchPlaces() {
+        do {
+            places = try context.fetch(Places.fetchRequest())
+            DispatchQueue.main.async {
+                self.cityTable.reloadData()
+            }
+        } catch {
+            places = []
+        }
     }
 }
 
+@available(iOS 10.0, *)
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return places?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var place: Places
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell")!
-        cell.textLabel?.text = "test"
+        if let places = places {
+            place = places[indexPath.row]
+
+            cell.textLabel?.text = place.name
+        }
         return cell
     }
     
@@ -32,8 +61,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @available(iOS 11.0, *)
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-            // perform deletion
-            print("we are getting here")
+            if let deletePlace = self.places?[indexPath.row] {
+                self.context.delete(deletePlace)
+                do {
+                    try self.context.save()
+                } catch {
+                    // Notify the user it failed
+                }
+                self.fetchPlaces()
+            }
         }
         return UISwipeActionsConfiguration(actions: [delete])
     }
