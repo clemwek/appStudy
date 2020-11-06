@@ -19,6 +19,7 @@
 		B39CD95D255293D300B89E61 /* appStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CD95C255293D300B89E61 /* appStudyUITests.swift */; };
 		B3A03FAE25542162005828F1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A03FAD25542162005828F1 /* NetworkManager.swift */; };
 		B3A03FB125546B74005828F1 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A03FB025546B74005828F1 /* CityViewController.swift */; };
+		B3AEA98725550A11006B40DB /* DailyCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEA98625550A11006B40DB /* DailyCityTableViewCell.swift */; };
 		B3EC262A2552FA9900690B23 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC26292552FA9900690B23 /* LocationSearchTableViewController.swift */; };
 		B3EC262D25534BAA00690B23 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC262C25534BAA00690B23 /* Weather.swift */; };
 		B3EC262F25535D5600690B23 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC262E25535D5600690B23 /* WeatherLocation.swift */; };
@@ -62,6 +63,7 @@
 		B39CD95E255293D300B89E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3A03FAD25542162005828F1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B3A03FB025546B74005828F1 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		B3AEA98625550A11006B40DB /* DailyCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCityTableViewCell.swift; sourceTree = "<group>"; };
 		B3EC26292552FA9900690B23 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		B3EC262C25534BAA00690B23 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		B3EC262E25535D5600690B23 /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				B3A03FB025546B74005828F1 /* CityViewController.swift */,
+				B3AEA98625550A11006B40DB /* DailyCityTableViewCell.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				B3A03FAE25542162005828F1 /* NetworkManager.swift in Sources */,
 				B39CD938255293CF00B89E61 /* AppDelegate.swift in Sources */,
 				B3EC26332553EF5A00690B23 /* Places+CoreDataProperties.swift in Sources */,
+				B3AEA98725550A11006B40DB /* DailyCityTableViewCell.swift in Sources */,
 				B39CD93A255293CF00B89E61 /* SceneDelegate.swift in Sources */,
 				B3EC262A2552FA9900690B23 /* LocationSearchTableViewController.swift in Sources */,
 				B39CD942255293CF00B89E61 /* appStudy.xcdatamodeld in Sources */,

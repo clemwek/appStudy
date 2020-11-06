@@ -24,15 +24,27 @@ struct Current: Codable {
     let feels_like: Double
     let pressure: Int
     let humidity: Int
+    let wind_speed: Double
+//    let rain: Rain
 }
 
+//struct Rain: Codable {
+//    let rain: Double
+//
+//    enum CodingKeys: String, CodingKey  {
+//        case rain = "1h"
+//    }
+//}
+
 struct Daily: Codable {
+    let dt: Int
     let sunrise: Int
     let sunset: Int
     let temp: Temp
     let feels_like: FeelsLike
     let pressure: Int
     let humidity: Int
+    let wind_speed: Double
 }
 
 struct Temp: Codable {
