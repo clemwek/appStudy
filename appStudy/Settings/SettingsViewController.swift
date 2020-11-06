@@ -33,7 +33,6 @@ class SettingsViewController: UIViewController {
         } catch {
             // There was an error
         }
-
     }
 }
 

@@ -125,7 +125,6 @@ extension AddPlaceViewController: HandleMapSearch {
     func dropPinZoomIn(placemark: MKPlacemark, name: String = "") {
         let newName = name == "" ? placemark.name : name
         // clear existing pins
-//        mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = newName

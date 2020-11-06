@@ -24,7 +24,6 @@
 		B3AEA98D25552469006B40DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEA98C25552469006B40DB /* SettingsViewController.swift */; };
 		B3EC262A2552FA9900690B23 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC26292552FA9900690B23 /* LocationSearchTableViewController.swift */; };
 		B3EC262D25534BAA00690B23 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC262C25534BAA00690B23 /* Weather.swift */; };
-		B3EC262F25535D5600690B23 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC262E25535D5600690B23 /* WeatherLocation.swift */; };
 		B3EC26322553EF5A00690B23 /* Places+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC26302553EF5A00690B23 /* Places+CoreDataClass.swift */; };
 		B3EC26332553EF5A00690B23 /* Places+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC26312553EF5A00690B23 /* Places+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
@@ -70,9 +69,8 @@
 		B3AEA98C25552469006B40DB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B3EC26292552FA9900690B23 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		B3EC262C25534BAA00690B23 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		B3EC262E25535D5600690B23 /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
-		B3EC26302553EF5A00690B23 /* Places+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Places+CoreDataClass.swift"; path = "appStudy/Models/Places+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B3EC26312553EF5A00690B23 /* Places+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Places+CoreDataProperties.swift"; path = "appStudy/Models/Places+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B3EC26302553EF5A00690B23 /* Places+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Places+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B3EC26312553EF5A00690B23 /* Places+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Places+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +109,6 @@
 		B39CD92B255293CF00B89E61 = {
 			isa = PBXGroup;
 			children = (
-				B3EC26302553EF5A00690B23 /* Places+CoreDataClass.swift */,
-				B3EC26312553EF5A00690B23 /* Places+CoreDataProperties.swift */,
 				B39CD936255293CF00B89E61 /* appStudy */,
 				B39CD950255293D300B89E61 /* appStudyTests */,
 				B39CD95B255293D300B89E61 /* appStudyUITests */,
@@ -238,8 +234,9 @@
 		B3EC262B25534B6700690B23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B3EC26302553EF5A00690B23 /* Places+CoreDataClass.swift */,
+				B3EC26312553EF5A00690B23 /* Places+CoreDataProperties.swift */,
 				B3EC262C25534BAA00690B23 /* Weather.swift */,
-				B3EC262E25535D5600690B23 /* WeatherLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,7 +373,6 @@
 			files = (
 				B3EC26322553EF5A00690B23 /* Places+CoreDataClass.swift in Sources */,
 				B339DD7D2552E0150008B66F /* AddPlaceViewController.swift in Sources */,
-				B3EC262F25535D5600690B23 /* WeatherLocation.swift in Sources */,
 				B39CD93C255293CF00B89E61 /* HomeViewController.swift in Sources */,
 				B3A03FAE25542162005828F1 /* NetworkManager.swift in Sources */,
 				B39CD938255293CF00B89E61 /* AppDelegate.swift in Sources */,

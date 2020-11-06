@@ -13,8 +13,6 @@ class HelpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         webView.loadRequest(URLRequest(url: URL(string: "https://www.apple.com/")!))
     }
-
 }
