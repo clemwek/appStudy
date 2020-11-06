@@ -15,13 +15,15 @@ class CityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if let place = place {
             let net = NetworkManager.shared
             let lon = place.lon
             let lat = place.lat
             net.fetch(lat: lat, lon: lon) { (status, weather) in
-                // Work display the data
-                print(weather)
                 self.weather = weather
             }
         }

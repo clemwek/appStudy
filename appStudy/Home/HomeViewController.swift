@@ -76,11 +76,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let place = places?[indexPath.row] else { return }
-        
-        let destinationVC = CityViewController()
+    
+        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CityViewController") as! CityViewController
         destinationVC.place = place
-        
-        destinationVC.performSegue(withIdentifier: "test", sender: nil)
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+
     }
 }
-

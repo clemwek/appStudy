@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Jz-f0-6yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110" y="552"/>
+            <point key="canvasLocation" x="-1110" y="632"/>
         </scene>
         <!--Help-->
         <scene sceneID="57r-cd-6CQ">
@@ -167,7 +167,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cityTable" destination="2YS-cE-yZH" id="qOU-mU-oMZ"/>
-                        <segue destination="GM3-vL-rOn" kind="show" identifier="test" id="w4D-br-xbq"/>
+                        <segue destination="uUn-hQ-rxw" kind="show" identifier="test" id="TQn-KX-pue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -175,18 +175,18 @@
             <point key="canvasLocation" x="-200.00000000000003" y="-763.39285714285711"/>
         </scene>
         <!--City View Controller-->
-        <scene sceneID="10x-Br-cfv">
+        <scene sceneID="qTZ-l9-Kbq">
             <objects>
-                <viewController id="GM3-vL-rOn" customClass="CityViewController" customModule="appStudy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="csK-j4-2tL">
+                <viewController storyboardIdentifier="CityViewController" id="uUn-hQ-rxw" customClass="CityViewController" customModule="appStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rhy-fu-lTY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="EQK-DH-zen"/>
+                        <viewLayoutGuide key="safeArea" id="Zjp-9O-uWE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tUc-ji-gKR"/>
+                    <navigationItem key="navigationItem" id="aKN-qt-xLw"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mW6-Wc-pFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xuq-ng-KKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-763"/>
         </scene>
