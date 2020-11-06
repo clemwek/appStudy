@@ -17,7 +17,9 @@ class NetworkManager {
     private init() {}
     
     public func fetch(lat: Double, lon: Double, completion: @escaping (_ succes: Bool, _ data: Weather?) -> ()) {
-        let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=minutely,alerts&appid=91a8c03fd97b06005b83e87c5e7ca53a"
+        
+        let selectedUnits = UserDefaults.standard.object(forKey: "selectedUnit")
+        let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=minutely,alerts&units=\(String(describing: selectedUnits))&appid=91a8c03fd97b06005b83e87c5e7ca53a"
         guard let url = URL(string: urlString) else { return }
         
         let request = URLRequest(url: url)
