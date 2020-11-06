@@ -28,14 +28,29 @@
         <!--Help-->
         <scene sceneID="57r-cd-6CQ">
             <objects>
-                <viewController id="2dL-lN-zC4" sceneMemberID="viewController">
+                <viewController id="2dL-lN-zC4" customClass="HelpViewController" customModule="appStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ty-sH-mw4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-MM-Sta">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9rI-Uc-j2E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9rI-Uc-j2E" firstAttribute="bottom" secondItem="O4H-MM-Sta" secondAttribute="bottom" id="YD0-Gr-m9c"/>
+                            <constraint firstItem="9rI-Uc-j2E" firstAttribute="trailing" secondItem="O4H-MM-Sta" secondAttribute="trailing" id="oyt-FC-4M1"/>
+                            <constraint firstItem="O4H-MM-Sta" firstAttribute="top" secondItem="9rI-Uc-j2E" secondAttribute="top" id="pKM-kI-Cjg"/>
+                            <constraint firstItem="O4H-MM-Sta" firstAttribute="leading" secondItem="9rI-Uc-j2E" secondAttribute="leading" id="pWj-2U-DAG"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Help" image="info.circle" catalog="system" selectedImage="info.circle.fill" id="n4b-Wo-j5U"/>
+                    <connections>
+                        <outlet property="webView" destination="O4H-MM-Sta" id="S7R-Bi-CY1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTR-ID-XWH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
